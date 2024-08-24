@@ -16,11 +16,11 @@ place config to odoo main path (next to odoo-bin)
 
 This module provide controller(web) and model view:
 - model view can be access in material menu in apps
-- website view can be access from '/material/view' and 'supplier/view'
+- website view can be access from '/material/view' and '/supplier/view'
 
 run command
 ```
-    # for unit test
+    # for unit test(for model view)
     python odoo-bin -c ../odoo.conf  --test-enable --stop-after-init --test-tags=material_note
     
     # for running application
