@@ -14,14 +14,13 @@ This module is used for store data materials and suppliers.
 this module create for odoo 14 with python 3.9
 
 ## Instructions:
-add this module to addons folder and register the addons path to config(example config is provided).
-Place config to odoo main path (next to odoo-bin)
+add this module to custome addons directory and register the addons path to config(example config is provided).
 
 This module provide controller(web) and model view:
 - model view can be access in material menu in apps
 - website view can be access from '/material/view' and '/supplier/view'
 
-run command
+run command example(inside odoo main directory and odoo.conf outside of the odoo main directory)
 ```
     # for unit test
     python odoo-bin -c ../odoo.conf  --test-enable --stop-after-init --test-tags=material_note
