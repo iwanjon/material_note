@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="om_suppliers_tree" model="ir.ui.view">
+        <field name="name">om.suppliers.tree</field>
+        <field name="model">om.suppliers</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="id"/> -->
+                <field name="name"/>
+                <field name="code"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="om_suppliers_form" model="ir.ui.view">
+        <field name="name">om.suppliers.form</field>
+        <field name="model">om.suppliers</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="vom_suppliers_kanban" model="ir.ui.view">
+        <field name="name">om.suppliers.kanban</field>
+        <field name="model">om.suppliers</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id asc">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top m16">
+                                <strong>
+                                    <span> 
+                                     <field name="name"/>
+                                    </span>
+                                 </strong>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                            
+                                    <span> 
+                                     <field name="code"/>
+                                    </span>
+                      
+                                </div>
+            
+                       
+ 
+                                
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_supplier_search" model="ir.ui.view">
+        <field name="name">om.suppliers.search</field>
+        <field name="model">om.suppliers</field>
+        <field name="arch" type="xml">
+            <search string="Suppliers">
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <filter string="Active" name="status" domain="[('status', '=', 1)]"/>
+                <filter string="Inactive" name="status" domain="[('status', '=', 0)]"/>
+    
+                <group expand="1" string="Group By">
+                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="om_suppliers_action" model="ir.actions.act_window">
+        <field name="name">Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">om.suppliers</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                your suppliers!
+            </p>
+        </field>
+    </record>
+
+    <!-- <menuitem id="suppliers_root"
+              name="suppliers"
+              sequence="11"/> -->
+
+    <menuitem id="om_suppliers_root"
+              name="suppliers"
+              parent="materials_root"
+              action="om_suppliers_action"
+              sequence="10"/>
+
+    <!-- <menuitem id="om_suppliers"
+              name="supplierss"
+              parent="om_suppliers_root"
+              action="om_suppliers_action"
+              sequence="10"/> -->
+
+</odoo>

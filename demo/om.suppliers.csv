@@ -1,0 +1,5 @@
+id,name,code,status
+om_suppliers.house,"House","house",1
+om_suppliers.appart,"Apartment","apartment",1
+om_suppliers.pent,"Penthouse","penthouse",1
+om_suppliers.cast,"Castle","castle",1

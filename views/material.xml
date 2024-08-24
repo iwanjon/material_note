@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="om_materials_tree" model="ir.ui.view">
+        <field name="name">om.materials.tree</field>
+        <field name="model">om.materials</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name="status"/>
+                <field name="buy_price"/>
+                <field name="supplier_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="om_materials_form" model="ir.ui.view">
+        <field name="name">om.materials.form</field>
+        <field name="model">om.materials</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="buy_price"/>
+                            <field name="status"/>
+                            <field name="supplier_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="om_materialss_kanban" model="ir.ui.view">
+        <field name="name">om.materials.kanban</field>
+        <field name="model">om.materials</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id asc">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name="buy_price"/>
+                <field name="supplier_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top m16">
+                                <strong>
+                                    <span> 
+                                     <field name="name"/>
+                                    </span>
+                                 </strong>
+                                </div>
+                                <div>
+                                    <div> 
+                                     <field name="code"/>
+                                    </div>
+
+                                    <div> 
+                                     <field name="buy_price"/>
+                                    </div>
+
+                                    <div> 
+                                     <field name="type"/>
+                                    </div>
+
+                                    <div> 
+                                     <field name="supplier_id"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_material_search" model="ir.ui.view">
+        <field name="name">om.materials.search</field>
+        <field name="model">om.materials</field>
+        <field name="arch" type="xml">
+            <search string="Materials">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <separator/>
+                
+                <filter string="Active" name="status" domain="[('status', '=', 1)]"/>
+                <filter string="Inactive" name="status" domain="[('status', '=', 0)]"/>
+                <filter string="fabric" name="fabric" domain="[('type', '=', 'fabric')]"/>
+                <filter string="cotton" name="cotton" domain="[('type', '=', 'cotton')]"/>
+                <filter string="jeans" name="jeans" domain="[('type', '=', 'jeans')]"/>
+    
+                <group expand="1" string="Group By">
+                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                    <filter string="Type" name="type" context="{'group_by':'type'}"/>
+                    <filter string="Supplier" name="supplier" context="{'group_by':'supplier_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="om_materials_action" model="ir.actions.act_window">
+        <field name="name">Material</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">om.materials</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                your materials!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="materials_root"
+              name="Materials"
+              sequence="11"/>
+
+    <menuitem id="om_materials_root"
+              name="Materials"
+              parent="materials_root"
+              action="om_materials_action"
+              sequence="10"/>
+
+    <!-- <menuitem id="om_materials"
+              name="Materialss"
+              parent="om_materials_root"
+              action="om_materials_action"
+              sequence="10"/> -->
+
+</odoo>

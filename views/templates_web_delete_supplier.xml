@@ -1,0 +1,25 @@
+<odoo>
+    <template id="delete_confirm_template_supplier">
+        <t t-call="material_note.custom_layout">
+            <div class="container">
+                <h1>Confirm Deletion</h1>
+                <p>Are you sure you want to delete <t t-esc="record.name"/>?</p>
+                <form method="post" t-attf-action="/supplier/delete_record/#{record.id}">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <button type="submit" class="btn btn-danger">Confirm</button>
+                    <a href="/supplier/view" class="btn btn-secondary">Cancel</a>
+                </form>
+               <t t-if="errors">
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            <t t-foreach="errors" t-as="error">
+                                <li><t t-esc="error"/></li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

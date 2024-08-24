@@ -1,0 +1,78 @@
+<odoo>
+    <template id="create_template">
+        <t t-call="material_note.custom_layout">
+            <div class="container">
+                <h1>Create New Record</h1>
+                <form method="post" action="/material/create_record_action">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <input type="text" id="code" name="code" required="required" class="form-control"/>
+                    </div>
+
+
+
+                    <!-- <div class="form-group">
+                        <label for="type">Type</label>
+                        <input type="text" id="type" name="type" class="form-control"/>
+                    </div> -->
+
+                    <!-- Type Field -->
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" name="type" class="form-control">
+                            <!-- <option value="">Select Type</option> -->
+                            <t t-foreach="type_options" t-as="type_option">
+                                <option t-att-value="type_option[0]"><t t-esc="type_option[1]"/></option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buy_price">Price</label>
+                        <input type="text" id="buy_price" name="buy_price" required="required" class="form-control"/>
+                    </div>
+
+
+
+                    <!-- <div class="form-group">
+                        <label for="supplier_id">Supplier</label>
+                        <input type="text" id="supplier_id" name="supplier_id" class="form-control"/>
+                    </div> -->
+
+                    <!-- Supplier Field -->
+                    <div class="form-group">
+                        <label for="supplier_id">Supplier</label>
+                        <select id="supplier_id" name="supplier_id" class="form-control">
+                            <option value="" >Select Supplier</option>
+                            <t t-foreach="suppliers" t-as="supplier">
+                                <option t-att-value="supplier['id']"><t t-esc="supplier['name']"/></option>
+                            </t>
+                        </select>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a href="/material/view" class="btn btn-secondary">Cancel</a>
+                </form>
+
+                <t t-if="errors">
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            <t t-foreach="errors" t-as="error">
+                                <li><t t-esc="error"/></li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

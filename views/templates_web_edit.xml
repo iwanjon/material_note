@@ -1,0 +1,73 @@
+<odoo>
+    <template id="edit_template">
+        <t t-call="material_note.custom_layout">
+            <div class="container">
+                <h1>Edit Record</h1>
+                <form method="post" action="/material/edit_record_action">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="record_id" t-att-value="record_id"/>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" 
+                               t-att-value="record.name" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <input type="text" id="code" name="code" class="form-control" 
+                               t-att-value="record.code"  required="required"/>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" class="form-control" 
+                               t-att-value="record.status"  required="required"/>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="buy_price">Price</label>
+                        <input type="text" id="buy_price" name="buy_price" class="form-control" 
+                               t-att-value="record.buy_price"  required="required"/>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="type">Type</label>
+                        <input type="text" id="type" name="type" class="form-control" 
+                               t-att-value="record.type"  required="required"/>
+                    </div> -->
+
+
+                    <div class="form-group">
+                        <label for="tupe">Type</label>
+                        <select id="type" name="type" class="form-control">
+                            <option t-att-value="record.type" ><t t-esc="record.type"/></option>
+                            <t t-foreach="types" t-as="typ">
+                                <option t-att-value="typ[0]"><t t-esc="typ[1]"/></option>
+                            </t>
+                        </select>
+                    </div>
+
+                         <!-- Supplier Field -->
+                    <div class="form-group">
+                        <label for="supplier_id">Supplier</label>
+                        <select id="supplier_id" name="supplier_id" class="form-control">
+                            <option t-att-value="int(record.supplier_id)" ><t t-esc="record.supplier_id.name"/></option>
+                            <t t-foreach="suppliers" t-as="supplier">
+                                <option t-att-value="supplier['id']"><t t-esc="supplier['name']"/></option>
+                            </t>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/material/view" class="btn btn-secondary">Cancel</a>
+                </form>
+
+                <t t-if="errors">
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            <t t-foreach="errors" t-as="error">
+                                <li><t t-esc="error"/></li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

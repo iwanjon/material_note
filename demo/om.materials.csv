@@ -1,0 +1,6 @@
+id,name,code,status,buy_price,type,supplier_id/id
+om.materials.1,"material_1","material_1",1,1230,"fabric","1"
+om.materials.12,"material_2","material_2",1,12305,"jeans","sdsdsd"
+om.materials.3,"material_3","material_3",1,12355,"jeans","sdsdsd"
+om.materials.4,"material_4","material_4",1,123077,"cotton","2"
+om.materials.40,"material_5","material_5",1,12390,"cotton","4"

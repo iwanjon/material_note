@@ -1,0 +1,52 @@
+<odoo>
+
+  <template id="custom_layout" inherit_id="website.layout">
+        <xpath expr="//header" position="inside">
+        <!-- <xpath expr="#top_menu_container" position="after"> -->
+    
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/material/view">Material</a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/material/view">Material</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/supplier/view">Supplier</a>
+                            </li>
+
+         <!-- <li t-if="is_connected" t-attf-class="#{_item_class} o_no_autohide_item">
+            <a href="#" role="button" data-toggle="dropdown" t-attf-class="dropdown-toggle #{_link_class}">
+                <t t-if="_avatar">
+                    <t t-if="user_id.image_256" t-set="avatar_source" t-value="image_data_uri(user_id.image_256)"/>
+                    <t t-else="" t-set="avatar_source" t-value="'/web/static/src/img/placeholder.png'"/>
+                    <img t-att-src="avatar_source" t-attf-class="rounded-circle o_object_fit_cover #{_avatar_class}" width="24" height="24" alt="" loading="eager"/>
+                </t>
+                <i t-if="_icon" t-attf-class="fa fa-1x fa-fw fa-user-circle-o #{_icon_class}"/>
+                <span t-if="_user_name" t-attf-class="#{_user_name_class}" t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+            </a>
+            <div t-attf-class="dropdown-menu js_usermenu #{_dropdown_menu_class}" role="menu">
+                <div id="o_logout_divider" class="dropdown-divider"/>
+                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem" id="o_logout" class="dropdown-item">Logout</a>
+            </div>
+
+        </li> -->
+                        </ul>
+                            <!-- <div t-attf-class="dropdown-menu js_usermenu #{_dropdown_menu_class}" role="menu">
+                                    <div id="o_logout_divider" class="dropdown-divider"/>
+                                    <a href="/my/home" role="menuitem" class="dropdown-item">My Account</a>
+                                    <a t-attf-href="/web/session/logout?redirect=/" role="menuitem" id="o_logout" class="dropdown-item">Logout</a>
+                            </div> -->
+         
+
+         
+                    </div>
+                </nav>
+            </header>
+        </xpath>
+    </template>
+
+
+
+</odoo>

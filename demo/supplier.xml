@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+          <record id="1" model="om.suppliers">
+            <field name="name">suplier 0</field>
+            <field name="code">0</field>
+            <field name="status">1</field>
+          </record>
+
+          <record id="2"  model="om.suppliers">
+            <field name="name">suplier 1</field>
+            <field name="code">suplier_1</field>
+            <field name="status">1</field>
+          </record>
+
+          <record id="3"  model="om.suppliers">
+            <field name="name">suplier 2</field>
+            <field name="code">suplier_2</field>
+            <field name="status">1</field>
+          </record>
+
+          <record id="4"  model="om.suppliers">
+            <field name="name">suplier 3</field>
+            <field name="code">suplier_3</field>
+            <field name="status">1</field>
+          </record>
+
+          <record id="sdsdsd" model="om.suppliers">
+            <field name="name">suplier 4</field>
+            <field name="code">suplier_4</field>
+            <field name="status">1</field>
+          </record>
+
+    </data>
+</odoo>
